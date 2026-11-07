@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Forecast</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">Forecast</h1>
+
+    <form id="search" class="search" novalidate>
+      <label for="zip" class="visually-hidden">ZIP code</label>
+      <input id="zip" name="zip" type="text" inputmode="numeric" maxlength="5"
+             placeholder="ZIP code" autocomplete="postal-code" required>
+
+      <fieldset class="units">
+        <legend class="visually-hidden">Units</legend>
+        <label title="Fahrenheit, mph, inches"><input type="radio" name="units" value="us" checked><span>US</span></label>
+        <label title="Celsius, km/h, millimeters"><input type="radio" name="units" value="metric"><span>Metric</span></label>
+        <label title="Celsius, mph, millimeters"><input type="radio" name="units" value="uk"><span>UK</span></label>
+        <label title="Kelvin, m/s, millimeters"><input type="radio" name="units" value="base"><span>Base</span></label>
+      </fieldset>
+
+      <button type="submit" id="submit">Get forecast</button>
+    </form>
+  </header>
+
+  <p id="status" class="status" role="status" aria-live="polite"></p>
+
+  <main id="main">
+    <section id="empty" class="empty">
+      <p>Enter a 5-digit US ZIP code to see the weather there right now and for the next two weeks.</p>
+    </section>
+
+    <section id="alerts" class="alerts" hidden aria-label="Weather alerts"></section>
+
+    <section id="now" class="sky" hidden aria-labelledby="place">
+      <div class="sky-top">
+        <div class="now-main">
+          <h2 class="place" id="place"></h2>
+          <p class="localtime" id="localtime"></p>
+          <div class="temp-row">
+            <span class="icon icon-lg" id="now-icon" aria-hidden="true"></span>
+            <span class="temp" id="now-temp"></span>
+          </div>
+          <p class="cond" id="now-cond"></p>
+          <p class="feels" id="now-feels"></p>
+        </div>
+        <dl class="details" id="details"></dl>
+      </div>
+
+      <figure class="curve">
+        <figcaption id="curve-title"></figcaption>
+        <div id="curve-chart"></div>
+      </figure>
+    </section>
+
+    <section id="days" class="days" hidden aria-labelledby="days-title">
+      <h2 id="days-title"></h2>
+      <p class="hint">Select a day to see its hours above.</p>
+      <ol id="day-list" class="day-list"></ol>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Weather data from Visual Crossing. Forecasts are cached for a few hours.</p>
+    <button type="button" id="clear" class="link-button" hidden>Clear cached data for this ZIP code</button>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

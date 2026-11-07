@@ -1,0 +1,31 @@
+# --- Python Basics ---
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.pyc
+
+# --- Virtual Environments (Crucial!) ---
+# Covers the most common names for virtual envs
+venv/
+.venv/
+env/
+
+# --- IDE Settings ---
+# You generally don't want to share your personal editor settings
+.vscode/
+
+.idea/
+
+# --- Type Checking & Testing ---
+# Cache files created by tools like MyPy or Pytest
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pytest_cache/
+
+# --- Environment Variables ---
+# NEVER commit secrets or API keys
+.env
+.env.*
+!.env.example
+
+weather_app.egg-info
