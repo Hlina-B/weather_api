@@ -267,4 +267,4 @@ The service only talks to the `ThirdPartyWeatherAPIStrategy` interface, so a new
 - Only 5-digit US ZIP codes are accepted.
 - Finding the current hour assumes the location's UTC offset is a whole number of hours. That holds for every US time zone, but not, for example, for India (+5:30).
 - The cache-clear endpoint is a development switch, not authentication.
-- Error messages from internal failures are returned to the client as-is, which is fine for a practice project but would leak details in production.
+- Error messages from internal failures are returned to the client as-is, which is fine for a this purpose but would leak details in production.
